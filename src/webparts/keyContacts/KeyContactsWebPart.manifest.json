@@ -1,0 +1,20 @@
+{
+  "$schema": "../../../node_modules/@microsoft/sp-module-interfaces/lib/manifestSchemas/jsonSchemas/clientSideComponentManifestSchema.json",
+
+  "id": "031f644b-d92a-44d8-b118-6041098ff97f",
+  "alias": "KeyContactsWebPart",
+  "componentType": "WebPart",
+  "version": "0.0.1",
+  "manifestVersion": 2,
+
+  "preconfiguredEntries": [{
+    "groupId": "031f644b-d92a-44d8-b118-6041098ff97f",
+    "group": { "default": "Under Development" },
+    "title": { "default": "Key Contacts" },
+    "description": { "default": "Key Contacts React SPFx Webpart" },
+    "officeFabricIconFontName": "Page",
+    "properties": {
+      "description": "Key Contacts"
+    }
+  }]
+}

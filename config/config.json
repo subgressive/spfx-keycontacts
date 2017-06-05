@@ -1,0 +1,13 @@
+{
+  "entries": [
+    {
+      "entry": "./lib/webparts/keyContacts/KeyContactsWebPart.js",
+      "manifest": "./src/webparts/keyContacts/KeyContactsWebPart.manifest.json",
+      "outputPath": "./dist/key-contacts.bundle.js"
+    }
+  ],
+  "externals": {},
+  "localizedResources": {
+    "keyContactsStrings": "webparts/keyContacts/loc/{locale}.js"
+  }
+}
