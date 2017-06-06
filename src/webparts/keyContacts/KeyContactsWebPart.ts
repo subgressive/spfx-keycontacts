@@ -18,7 +18,8 @@ export default class KeyContactsWebPart extends BaseClientSideWebPart<IKeyContac
     const element: React.ReactElement<IKeyContactsProps > = React.createElement(
       KeyContacts,
       {
-        description: this.properties.description
+        title: this.properties.title,
+        client: this.context.spHttpClient
       }
     );
 
@@ -40,8 +41,8 @@ export default class KeyContactsWebPart extends BaseClientSideWebPart<IKeyContac
             {
               groupName: strings.BasicGroupName,
               groupFields: [
-                PropertyPaneTextField('description', {
-                  label: strings.DescriptionFieldLabel
+                PropertyPaneTextField('title', {
+                  label: "Title"
                 })
               ]
             }

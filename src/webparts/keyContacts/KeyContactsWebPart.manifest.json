@@ -14,7 +14,7 @@
     "description": { "default": "Key Contacts React SPFx Webpart" },
     "officeFabricIconFontName": "Page",
     "properties": {
-      "description": "Key Contacts"
+      "title": "Key Contacts"
     }
   }]
 }
