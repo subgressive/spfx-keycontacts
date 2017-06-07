@@ -8,6 +8,20 @@ import {
 } from 'office-ui-fabric-react/lib/Persona';
 import { SPHttpClient, ISPHttpClientConfiguration, SPHttpClientResponse } from '@microsoft/sp-http';
 
+export interface IKeyContacts {
+  Title: string;
+  Contact:IUser;
+}
+
+export interface IUser {
+  EMail: string;
+  FirstName: string;
+  LastName: string;
+  Title: string;
+  WorkPhone: string;
+  Department: string;
+  JobTitle: string;
+}
 
 export class ContactCards extends React.Component<any, void>{
   public render() {
@@ -16,7 +30,7 @@ export class ContactCards extends React.Component<any, void>{
         <div className="ms-Grid-row">
           <h2>{this.props.header}</h2>
           {
-            this.props.items.map(item => {
+            this.props.items.map((item: IKeyContacts) => {
               return (
               <div className="ms-Grid-col ms-u-sm12 ms-u-md6 ms-u-lg3">
                 <Persona
