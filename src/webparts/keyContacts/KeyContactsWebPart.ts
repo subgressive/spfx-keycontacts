@@ -63,4 +63,8 @@ export default class KeyContactsWebPart extends BaseClientSideWebPart<IKeyContac
       ]
     };
   }
+
+  protected get disableReactivePropertyChanges(): boolean {
+    return true;
+  }
 }

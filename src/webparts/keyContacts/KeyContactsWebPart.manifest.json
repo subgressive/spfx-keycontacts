@@ -15,8 +15,7 @@
     "officeFabricIconFontName": "Page",
     "properties": {
       "title": "Key Contacts",
-      "listName": "Contacts",
-      "count":4
+      "listName": "KeyContacts"
     }
   }]
 }
