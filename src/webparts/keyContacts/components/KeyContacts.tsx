@@ -19,6 +19,15 @@ export default class KeyContacts extends React.Component<IKeyContactsProps, any>
     this._getContacts();
   }
 
+  componentDidUpdate(preProps, prevState) {
+    if (this.props.itemCount != preProps.itemCount || 
+        this.props.listName != preProps.listName) {
+          this._getContacts();
+    }    
+  }
+
+
+
   public render(): React.ReactElement<IKeyContactsProps> {
     return (
       <div>

@@ -54,7 +54,8 @@ export default class KeyContactsWebPart extends BaseClientSideWebPart<IKeyContac
                 PropertyPaneSlider('count', {
                   label: "Number of contact cards",
                   min: 1,
-                  max: 10
+                  max: 20,
+                  value: 4
                 })
               ]
             }
