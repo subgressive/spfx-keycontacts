@@ -17,7 +17,7 @@ export class ContactCards extends React.Component<any, void>{
               return (
               <div className="ms-Grid-col ms-u-sm12 ms-u-md6 ms-u-lg3">
                 <Persona
-                  imageUrl='./images/boom.png'
+                  imageUrl={item.UserInfo.Picture.Url}
                   imageInitials='SS'
                   primaryText={item.Contact.Title}
                   secondaryText={item.Title}

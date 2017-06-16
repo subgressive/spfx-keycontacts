@@ -1,6 +1,7 @@
 export interface IContact {
   Title: string;
   Contact: IUser;
+  UserInfo:UserInfo;
 }
 
 export interface IUser {
@@ -11,4 +12,15 @@ export interface IUser {
   WorkPhone: string;
   Department: string;
   JobTitle: string;
+}
+
+export interface UserInfo {
+  Id: string;
+  Picture: IPicture;
+  UserName: string;
+}
+
+export interface IPicture {
+  Description: string;
+  Url: string;
 }

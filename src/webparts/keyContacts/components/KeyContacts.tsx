@@ -20,10 +20,10 @@ export default class KeyContacts extends React.Component<IKeyContactsProps, any>
   }
 
   componentDidUpdate(preProps, prevState) {
-    if (this.props.itemCount != preProps.itemCount || 
-        this.props.listName != preProps.listName) {
-          this._getContacts();
-    }    
+    if (this.props.itemCount != preProps.itemCount ||
+      this.props.listName != preProps.listName) {
+      this._getContacts();
+    }
   }
 
 
@@ -45,8 +45,19 @@ export default class KeyContacts extends React.Component<IKeyContactsProps, any>
     console.log("url=" + url);
     this._getSPData(url)
       .then(data => {
-        //console.log('get the data' + data);
-        this.setState({ contacts: data });
+        this._getSPUserInfo().then(ui => {
+          let colContacts = data;
+          let colUI = ui;
+          colContacts.map(item => {
+            for (var i = 0; i < colUI.length; i++) {
+              if (item["Contact"]["Id"] == colUI[i]["Id"]) {
+                item["UserInfo"] = colUI[i];
+                break;
+              }
+            }
+          });
+          this.setState({ contacts: colContacts });
+        });
       });
   }
 
@@ -59,4 +70,13 @@ export default class KeyContacts extends React.Component<IKeyContactsProps, any>
       });
   }
 
+  private _getSPUserInfo(): Promise<string[]> {
+    var url = this.props.webUrl + "/_api/web/lists/getbytitle('User Information List')/items?filter=UserName ne null&select=Id,Picture,UserName";
+    console.log("get user nfo : url = " + url);
+    return this._getSPData(url)
+      .then(data => {
+        return data;
+        //console.log('get the data' + data);
+      });
+  }
 }
