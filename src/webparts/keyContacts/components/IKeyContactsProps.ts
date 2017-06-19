@@ -5,5 +5,5 @@ export interface IKeyContactsProps {
   listName: string;
   client: SPHttpClient;
   webUrl: string;
-  itemCount: string;
+  cardCount: string;
 }

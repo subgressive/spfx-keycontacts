@@ -20,7 +20,7 @@ export default class KeyContacts extends React.Component<IKeyContactsProps, any>
   }
 
   componentDidUpdate(preProps, prevState) {
-    if (this.props.itemCount != preProps.itemCount ||
+    if (this.props.cardCount != preProps.cardCount ||
       this.props.listName != preProps.listName) {
       this._getContacts();
     }
@@ -38,25 +38,33 @@ export default class KeyContacts extends React.Component<IKeyContactsProps, any>
 
   private _getContacts() {
     var myListName = this.props.listName;
-    var maxCount = this.props.itemCount;
+    var maxCount = this.props.cardCount;
     console.log("maxCount=" + maxCount);
     console.log("myListName=" + myListName);
-    var url = this.props.webUrl + "/_api/web/lists/GetByTitle('" + myListName + "')/items?$top=" + maxCount + "&$expand=Contact/Id&$select=Title,Contact/Id,Contact/EMail,Contact/FirstName,Contact/LastName,Contact/Title,Contact/WorkPhone,Contact/Department,Contact/JobTitle";
-    console.log("url=" + url);
+
+    //var url = this.props.webUrl + "/_api/web/lists/GetByTitle('" + myListName + "')/items?$top=" + maxCount + "&$expand=Contact/Id&$select=Title,Contact/Id,Contact/EMail,Contact/FirstName,Contact/LastName,Contact/Title,Contact/WorkPhone,Contact/Department,Contact/JobTitle";
+    var url = this.props.webUrl + "/_api/web/lists/getbytitle('Contacts')/items?$expand=Contact/Id&$select=Title,Contact/Id,Contact/EMail,Contact/FirstName,Contact/LastName,Contact/Title,Contact/WorkPhone,Contact/Department,Contact/JobTitle";
+    console.log("url = " + url);
+    var colContacts = [];
     this._getSPData(url)
       .then(data => {
-        this._getSPUserInfo().then(ui => {
-          let colContacts = data;
-          let colUI = ui;
-          colContacts.map(item => {
-            for (var i = 0; i < colUI.length; i++) {
-              if (item["Contact"]["Id"] == colUI[i]["Id"]) {
-                item["UserInfo"] = colUI[i];
-                break;
+        this._getSPUserInfo()
+          .then(ui => {
+            let colContacts = data;
+            let colUI = ui;
+            colContacts.map(item => {
+              for (var i = 0; i < colUI.length; i++) {
+                var thisItemContactId = item["Contact"]["Id"];
+                var thisColUIId = colUI[i]["Id"];
+                if (item["Contact"]["Id"] == colUI[i]["Id"]) {
+                  item["UserInfo"] = colUI[i];
+                  //console.log(colUI[i]);
+                  break;
+                }
               }
-            }
-          });
-          this.setState({ contacts: colContacts });
+              console.log("thisItemContactId = " + thisItemContactId + " , " + thisColUIId);    
+            });
+            this.setState({ contacts: colContacts });
         });
       });
   }
@@ -71,12 +79,12 @@ export default class KeyContacts extends React.Component<IKeyContactsProps, any>
   }
 
   private _getSPUserInfo(): Promise<string[]> {
-    var url = this.props.webUrl + "/_api/web/lists/getbytitle('User Information List')/items?filter=UserName ne null&select=Id,Picture,UserName";
-    console.log("get user nfo : url = " + url);
-    return this._getSPData(url)
+    var uri = this.props.webUrl + "/_api/web/lists/getbytitle('User Information List')/items?$filter=Name ne null&select=Id,Picture,UserName";
+    console.log("get user info : uri = " + uri);
+    return this._getSPData(uri)
       .then(data => {
-        return data;
         //console.log('get the data' + data);
+        return data;
       });
   }
 }

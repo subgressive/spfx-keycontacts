@@ -8,6 +8,7 @@ import {IContact} from './IModels';
 export class ContactCards extends React.Component<any, void>{
   public render() {
     var col = (this.props.items)?this.props.items:[];
+    //var colUIPic = (this.props.item.UserInfo.Picture)?this.props.item.UserInfo.Picture:[];
     return (
       <div className="ms-Grid">
         <div className="ms-Grid-row">

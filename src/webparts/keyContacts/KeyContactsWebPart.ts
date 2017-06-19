@@ -23,8 +23,8 @@ export default class KeyContactsWebPart extends BaseClientSideWebPart<IKeyContac
         listName: this.properties.listName,
         client: this.context.spHttpClient,
         webUrl: this.context.pageContext.web.absoluteUrl,
-        itemCount: this.properties.count
-    }
+        cardCount: this.properties.cardCount
+      }
     );
 
     ReactDom.render(element, this.domElement);
@@ -51,11 +51,13 @@ export default class KeyContactsWebPart extends BaseClientSideWebPart<IKeyContac
                 PropertyPaneTextField('listName', {
                   label: "Contacts list name"
                 }),
-                PropertyPaneSlider('count', {
+                PropertyPaneSlider('cardCount', {
                   label: "Number of contact cards",
-                  min: 1,
-                  max: 20,
-                  value: 4
+                  min:2,
+                  max:20,
+                  value:4,
+                  showValue:true,
+                  step:2
                 })
               ]
             }
