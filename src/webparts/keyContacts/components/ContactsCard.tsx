@@ -14,7 +14,7 @@ export class ContactCards extends React.Component<any, void>{
           <h2>{this.props.header}</h2>
           {
             col.map((item: IContact) => {
-              var thisPicture = '';
+              var thisPicture = '/_layouts/15/images/personplaceholder.96x96x32.png';
               if (item.UserInfo.Picture != null) {
                   thisPicture = item.UserInfo.Picture.Url;
               }
