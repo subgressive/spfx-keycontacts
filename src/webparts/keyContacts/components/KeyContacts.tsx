@@ -30,7 +30,7 @@ export default class KeyContacts extends React.Component<IKeyContactsProps, any>
 
   public render(): React.ReactElement<IKeyContactsProps> {
     return (
-      <div>
+      <div className="KeyContactsOverrides">
         <ContactCards header={this.props.title} items={this.state.contacts} />
       </div>
     );

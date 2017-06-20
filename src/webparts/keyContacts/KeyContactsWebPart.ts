@@ -12,6 +12,7 @@ import * as strings from 'keyContactsStrings';
 import KeyContacts from './components/KeyContacts';
 import { IKeyContactsProps } from './components/IKeyContactsProps';
 import { IKeyContactsWebPartProps } from './IKeyContactsWebPartProps';
+require('./components/KeyContactsOverrides.css');
 
 export default class KeyContactsWebPart extends BaseClientSideWebPart<IKeyContactsWebPartProps> {
 
