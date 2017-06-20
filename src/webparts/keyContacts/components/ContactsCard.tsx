@@ -18,7 +18,7 @@ export class ContactCards extends React.Component<any, void>{
               if (item.UserInfo.Picture != null) {
                   thisPicture = item.UserInfo.Picture.Url;
               }
-              //console.log("thisPicture = " + thisPicture)
+              console.log("thisPicture = " + thisPicture)
               return (
               <div className="ms-Grid-col ms-u-sm12 ms-u-md6 ms-u-lg3">
                 <Persona

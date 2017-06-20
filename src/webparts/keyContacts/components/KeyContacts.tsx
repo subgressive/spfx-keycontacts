@@ -42,8 +42,8 @@ export default class KeyContacts extends React.Component<IKeyContactsProps, any>
     console.log("maxCount=" + maxCount);
     console.log("myListName=" + myListName);
 
-    //var url = this.props.webUrl + "/_api/web/lists/GetByTitle('" + myListName + "')/items?$top=" + maxCount + "&$expand=Contact/Id&$select=Title,Contact/Id,Contact/EMail,Contact/FirstName,Contact/LastName,Contact/Title,Contact/WorkPhone,Contact/Department,Contact/JobTitle";
-    var url = this.props.webUrl + "/_api/web/lists/getbytitle('Contacts')/items?$expand=Contact/Id&$select=Title,Contact/Id,Contact/EMail,Contact/FirstName,Contact/LastName,Contact/Title,Contact/WorkPhone,Contact/Department,Contact/JobTitle";
+    var url = this.props.webUrl + "/_api/web/lists/GetByTitle('" + myListName + "')/items?$top=" + maxCount + "&$expand=Contact/Id&$select=Title,Contact/Id,Contact/EMail,Contact/FirstName,Contact/LastName,Contact/Title,Contact/WorkPhone,Contact/Department,Contact/JobTitle";
+    //var url = this.props.webUrl + "/_api/web/lists/getbytitle('Contacts')/items?$expand=Contact/Id&$select=Title,Contact/Id,Contact/EMail,Contact/FirstName,Contact/LastName,Contact/Title,Contact/WorkPhone,Contact/Department,Contact/JobTitle";
     console.log("url = " + url);
     var colContacts = [];
     this._getSPData(url)

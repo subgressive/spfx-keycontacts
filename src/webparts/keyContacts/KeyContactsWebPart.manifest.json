@@ -16,7 +16,7 @@
     "properties": {
       "title": "Key Contacts",
       "listName": "Contacts",
-      "cardCount":4
+      "count":"4"
     }
   }]
 }
