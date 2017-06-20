@@ -5,6 +5,7 @@ import { escape } from '@microsoft/sp-lodash-subset';
 import { SPHttpClient, ISPHttpClientConfiguration, SPHttpClientResponse } from '@microsoft/sp-http';
 
 import { ContactCards } from './ContactsCard';
+import { css } from 'office-ui-fabric-react';
 
 export default class KeyContacts extends React.Component<IKeyContactsProps, any> {
   constructor() {
@@ -30,7 +31,7 @@ export default class KeyContacts extends React.Component<IKeyContactsProps, any>
 
   public render(): React.ReactElement<IKeyContactsProps> {
     return (
-      <div className="KeyContactsOverrides">
+      <div className={css('KeyContactsOverrides',styles.keyContacts)}>
         <ContactCards header={this.props.title} items={this.state.contacts} />
       </div>
     );
