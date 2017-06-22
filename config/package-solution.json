@@ -1,10 +1,10 @@
 {
   "solution": {
-    "name": "keycontacts-client-side-solution",
+    "name": "Breadcrumb SPFx - Key Contacts",
     "id": "b9df545f-bde9-4fd3-993f-a6519e0c0d0c",
     "version": "1.0.0.0"
   },
   "paths": {
-    "zippedPackage": "solution/keycontacts.sppkg"
+    "zippedPackage": "solution/breadcrumb-spfx-keycontacts.sppkg"
   }
 }
